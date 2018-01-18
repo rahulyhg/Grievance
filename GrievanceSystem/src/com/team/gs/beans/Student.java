@@ -4,13 +4,13 @@ public class Student {
 	Integer enrollmentId;
 	String name;
 	String email;
-	Integer contactNo;
-	Integer parentContact;
+	Long contactNo;
+	Long parentContact;
 	String address;
 	String profilePic;
 	Integer collegeId;
 	Integer branchId;
-	public Student(Integer enrollmentId, String name, String email, Integer contactNo, Integer parentContact,
+	public Student(Integer enrollmentId, String name, String email, Long contactNo, Long parentContact,
 			String address, String profilePic, Integer collegeId, Integer branchId) {
 		super();
 		this.enrollmentId = enrollmentId;
@@ -41,16 +41,16 @@ public class Student {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Integer getContactNo() {
+	public Long getContactNo() {
 		return contactNo;
 	}
-	public void setContactNo(Integer contactNo) {
+	public void setContactNo(Long contactNo) {
 		this.contactNo = contactNo;
 	}
-	public Integer getParentContact() {
+	public Long getParentContact() {
 		return parentContact;
 	}
-	public void setParentContact(Integer parentContact) {
+	public void setParentContact(Long parentContact) {
 		this.parentContact = parentContact;
 	}
 	public String getAddress() {

@@ -10,7 +10,7 @@ import com.team.gs.util.DBConnection;
 
 public class GChatDao {
 	
-	boolean insertCollege(GrievanceChat gc) {
+	boolean insertGrievanceChat(GrievanceChat gc) {
 		Connection conn;
 
 		try {

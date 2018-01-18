@@ -10,7 +10,7 @@ import java.util.Date;
 
 public class GrievanceDao {
 	
-	boolean insertCollege(Grievance g) {
+	boolean insertGrievance(Grievance g) {
 		Connection conn;
 
 		try {

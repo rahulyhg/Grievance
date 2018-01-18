@@ -8,7 +8,7 @@ import com.team.gs.util.DBConnection;
 
 public class AdminDao {
 
-	boolean insertCollege(Admin a) {
+	boolean insertAdmin(Admin a) {
 		Connection conn;
 
 		try {
@@ -17,7 +17,7 @@ public class AdminDao {
 			ps.setInt(1, a.getId());
 			ps.setString(2, a.getName());
 			ps.setString(3, a.getEmail());
-			ps.setInt(4, a.getContactNo());
+			ps.setLong(4, a.getContactNo());
 			ps.setInt(5,a.getCollegeId());
 			ps.setString(6, a.getProfilePic());
 		} catch (Exception e) {

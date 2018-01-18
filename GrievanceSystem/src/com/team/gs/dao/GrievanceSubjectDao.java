@@ -9,7 +9,7 @@ import com.team.gs.util.DBConnection;
 
 public class GrievanceSubjectDao {
 	
-	boolean insertCollege(GrievanceSubject gs) {
+	boolean insertGrievanceSubject(GrievanceSubject gs) {
 		Connection conn;
 
 		try {
