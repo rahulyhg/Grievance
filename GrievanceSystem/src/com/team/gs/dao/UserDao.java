@@ -10,7 +10,7 @@ import com.team.gs.util.DBConnection;
 
 public class UserDao {
 
-	boolean insertCollege(User u) {
+	boolean insertUser(User u) {
 		Connection conn;
 
 		try {

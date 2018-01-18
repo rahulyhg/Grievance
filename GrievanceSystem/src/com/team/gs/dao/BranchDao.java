@@ -8,7 +8,7 @@ import com.team.gs.util.DBConnection;
 
 public class BranchDao {
 	
-	boolean insertCollege(Branch b) {
+	boolean insertBranch(Branch b) {
 		Connection conn;
 
 		try {

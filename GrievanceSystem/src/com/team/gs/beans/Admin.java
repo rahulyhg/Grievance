@@ -3,10 +3,10 @@ public class Admin {
 	Integer id;
 	String name;
 	String email;
-	Integer contactNo;
+	Long contactNo;
 	Integer collegeId;
 	String profilePic;
-	public Admin(Integer id, String name, String email, Integer contactNo, Integer collegeId, String profilePic) {
+	public Admin(Integer id, String name, String email, Long contactNo, Integer collegeId, String profilePic) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -33,10 +33,10 @@ public class Admin {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Integer getContactNo() {
+	public Long getContactNo() {
 		return contactNo;
 	}
-	public void setContactNo(Integer contactNo) {
+	public void setContactNo(Long contactNo) {
 		this.contactNo = contactNo;
 	}
 	public Integer getCollegeId() {
