@@ -8,9 +8,9 @@ public class GrievanceChat {
 	String file;
 	String chat;
 	Character role;
-	Date date;
+	Long date;
 	Integer collegeId;
-	public GrievanceChat(Integer id, Integer grievanceId, String file, String chat, Character role, Date date,
+	public GrievanceChat(Integer id, Integer grievanceId, String file, String chat, Character role, Long date,
 			Integer collegeId) {
 		super();
 		this.id = id;
@@ -51,10 +51,10 @@ public class GrievanceChat {
 	public void setRole(Character role) {
 		this.role = role;
 	}
-	public Date getDate() {
+	public Long getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(Long date) {
 		this.date = date;
 	}
 	public Integer getCollegeId() {
@@ -68,6 +68,7 @@ public class GrievanceChat {
 		return "GrievanceChat [id=" + id + ", grievanceId=" + grievanceId + ", file=" + file + ", chat=" + chat
 				+ ", role=" + role + ", date=" + date + ", collegeId=" + collegeId + "]";
 	}
+	
 	
 
 }

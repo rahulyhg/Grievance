@@ -2,15 +2,20 @@ package com.team.gs.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import com.team.gs.beans.Admin;
 import com.team.gs.beans.Grievance;
 import com.team.gs.beans.GrievanceChat;
 import com.team.gs.util.DBConnection;
+import com.team.gs.util.DateConversionUtil;
 
 public class GChatDao {
 	
-	boolean insertGrievanceChat(GrievanceChat gc) {
+	public boolean insertGrievanceChat(GrievanceChat gc) {
 		Connection conn;
 
 		try {
@@ -20,11 +25,10 @@ public class GChatDao {
 			ps.setInt(2, gc.getGrievanceId());
 			ps.setString(3, gc.getFile());
 			ps.setString(4, gc.getChat());
-			ps.setString(5, " "+gc.getRole());
-			Date d=gc.getDate();
-			String s=d.toString();
-			ps.setString(6, s);
+			ps.setString(5, ""+gc.getRole());
+			ps.setString(6, ""+gc.getDate());
 			ps.setInt(7, gc.getCollegeId());
+			ps.executeUpdate();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -36,5 +40,57 @@ public class GChatDao {
 	}
 
 	
+	public List<GrievanceChat>  findAll() {
+		Connection conn;
+		ResultSet rs= null;
+		List<GrievanceChat> gChat=new ArrayList<GrievanceChat>();
+
+		try {
+			conn = DBConnection.getConnection();
+			PreparedStatement ps = conn.prepareStatement("select * from gchat");
+			rs= ps.executeQuery();
+			
+while(rs.next())	
+{
+	GrievanceChat c = new GrievanceChat(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getString(5).charAt(0),DateConversionUtil.dateToLong(rs.getString(6)),rs.getInt(7));
+	System.out.println(c);
+	gChat.add(c);
+     
+}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+
+		return gChat;
+
+	}
+
+	public GrievanceChat  findById(Integer id) {
+		Connection conn;
+		ResultSet rs= null;
+		GrievanceChat c=null;
+
+		try {
+			conn = DBConnection.getConnection();
+			PreparedStatement ps = conn.prepareStatement("select * from gchat where id=?");
+			ps.setInt(1, id);
+			rs= ps.executeQuery();
+			
+if(rs.next())	
+{
+	 c = new GrievanceChat(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getString(5).charAt(0),DateConversionUtil.dateToLong(rs.getString(6)),rs.getInt(7));
+	System.out.println(c);
+	
+     
+}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+
+		return c;
+
+	}
 
 }

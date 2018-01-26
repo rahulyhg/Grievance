@@ -59,13 +59,32 @@ while(rs.next())
 
 	}
 
-	/*public static void main(String[] args) {
-		CollegeDao cd=new CollegeDao();
-		Long a=8989468996L;
-		College c=new College(1,"Aman","C-41","amankhullar297@gmail.com",a);
-		Boolean b=cd.insertCollege(c);
-		System.out.println(b);
+	public List<College>  findById(Integer id) {
+		Connection conn;
+		ResultSet rs= null;
+		List<College> listCollege=new ArrayList<College>();
 
-	}*/
+		try {
+			conn = DBConnection.getConnection();
+			PreparedStatement ps = conn.prepareStatement("select * from m_college where id = ?" );
+			ps.setInt(1, id);
+			rs= ps.executeQuery();
+			
+while(rs.next())	
+{
+	College c = new College(rs.getInt("id"),rs.getString("name"),rs.getString(3),rs.getString(4),rs.getLong(5));
+	System.out.println(c);
+     listCollege.add(c);
+     
+}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+
+		return listCollege;
+
+	}
+
 
 }

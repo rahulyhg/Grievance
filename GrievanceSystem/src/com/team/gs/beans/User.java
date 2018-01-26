@@ -4,13 +4,15 @@ import java.util.Date;
 
 public class User {
 	String email;
+	String userName;
 	String password;
 	Character role;
-	Date lastScreen;
+	Long lastScreen;
 	Integer collegeId;
-	public User(String email, String password, Character role, Date lastScreen, Integer collegeId) {
+	public User(String email, String userName, String password, Character role, Long lastScreen, Integer collegeId) {
 		super();
 		this.email = email;
+		this.userName = userName;
 		this.password = password;
 		this.role = role;
 		this.lastScreen = lastScreen;
@@ -21,6 +23,12 @@ public class User {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	public String getPassword() {
 		return password;
@@ -34,10 +42,10 @@ public class User {
 	public void setRole(Character role) {
 		this.role = role;
 	}
-	public Date getLastScreen() {
+	public Long getLastScreen() {
 		return lastScreen;
 	}
-	public void setLastScreen(Date lastScreen) {
+	public void setLastScreen(Long lastScreen) {
 		this.lastScreen = lastScreen;
 	}
 	public Integer getCollegeId() {
@@ -48,8 +56,8 @@ public class User {
 	}
 	@Override
 	public String toString() {
-		return "User [email=" + email + ", password=" + password + ", role=" + role + ", lastScreen=" + lastScreen
-				+ ", collegeId=" + collegeId + "]";
+		return "User [email=" + email + ", userName=" + userName + ", password=" + password + ", role=" + role
+				+ ", lastScreen=" + lastScreen + ", collegeId=" + collegeId + "]";
 	}
 	
 

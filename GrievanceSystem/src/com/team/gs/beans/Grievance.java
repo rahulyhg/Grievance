@@ -3,15 +3,15 @@ package com.team.gs.beans;
 import java.util.Date;
 
 public class Grievance {
-	Integer id;
-	Integer subjectId;
-	String description;
-	String file;
-	Date date;
-	Character status;
-	Integer collegeId;
-	Integer studentId;
-	public Grievance(Integer id, Integer subjectId, String description, String file, Date date, Character status,
+	private Integer id;
+	private Integer subjectId;
+	private String description;
+	private String file;
+	private Long date;
+	private Character status;
+	private Integer collegeId;
+	private Integer studentId;
+	public Grievance(Integer id, Integer subjectId, String description, String file, Long date, Character status,
 			Integer collegeId, Integer studentId) {
 		super();
 		this.id = id;
@@ -47,10 +47,10 @@ public class Grievance {
 	public void setFile(String file) {
 		this.file = file;
 	}
-	public Date getDate() {
+	public Long getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(Long date) {
 		this.date = date;
 	}
 	public Character getStatus() {
@@ -77,5 +77,6 @@ public class Grievance {
 				+ ", date=" + date + ", status=" + status + ", collegeId=" + collegeId + ", studentId=" + studentId
 				+ "]";
 	}
+	
 
 }
