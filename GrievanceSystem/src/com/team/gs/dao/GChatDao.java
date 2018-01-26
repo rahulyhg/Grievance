@@ -52,7 +52,7 @@ public class GChatDao {
 			
 while(rs.next())	
 {
-	GrievanceChat c = new GrievanceChat(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getString(5).charAt(0),DateConversionUtil.dateToLong(rs.getString(6)),rs.getInt(7));
+	GrievanceChat c = new GrievanceChat(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getString(5).charAt(0),Long.parseLong(rs.getString(6)),rs.getInt(7));
 	System.out.println(c);
 	gChat.add(c);
      
