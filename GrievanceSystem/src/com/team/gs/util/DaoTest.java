@@ -36,11 +36,27 @@ public class DaoTest {
 		GrievanceChat gc=new GrievanceChat(111, 122, "aman", "ved", 'a', DateConversionUtil.dateToLong("06/07/1997"), 3);
 		GChatDao gd=new GChatDao();
 		long a=gc.getDate();
-		DateConversionUtil
+		//DateConversionUtil
+		/*(Socket) ->
+		   inet:setopts(Socket, [{active, once}]), 
+		   receive 
+		      {udp, Socket, Host, Port, Bin} -> 
+		      io:format("server received:~p~n",[Bin]), 
+		      gen_udp:send(Socket, Host, Port, Bin), 
+		      loop(Socket) 
+		   end. 
+
+		client(N) -> 
+		   {ok, Socket} = gen_udp:open(0, [binary]), 
+		   io:format("client opened socket=~p~n",[Socket]), 
+		   ok = gen_udp:send(Socket, "172.168.31.210", 4000, N), Value = receive 
+		      {udp, Socket, _, _, Bin} ->
+		         io:format("client received:~p~n",[Bin]) after 2000 ->
+		      0 */
 		
 		//System.out.println(gd.insertGrievanceChat(gc));
-		DateConversionUtil.longTodate(gc.getDate());
-	gd.findAll();
+		//DateConversionUtil.longTodate(gc.getDate());
+	//gd.findAll();
 	}
 	
 
