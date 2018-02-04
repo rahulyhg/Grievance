@@ -24,7 +24,7 @@ public class UserDao {
 
 		try {
 			conn = DBConnection.getConnection();
-			PreparedStatement ps = conn.prepareStatement("insert into user values(?,?,?,?,?,?)");
+			PreparedStatement ps = conn.prepareStatement("insert into user  values(?,?,?,?,?,?)");
 			ps.setString(1, u.getEmail());
 			ps.setString(2, u.getUserName());
 			ps.setString(3, u.getPassword());
@@ -54,8 +54,8 @@ public class UserDao {
 			
 if(rs.next())	
 {
-	 c = new User(rs.getString(1),rs.getString(2),rs.getString(3),(rs.getString(4)).charAt(0),rs.getLong(5),rs.getInt(6));
-	System.out.println(c);
+	 c = new User(rs.getString(1),rs.getString(2),rs.getString(3),(rs.getString(4)).charAt(0),rs.getLong(5),rs.getInt(6),rs.getString(7).charAt(0));
+	 System.out.println(c);
 	
      
 }
@@ -84,7 +84,7 @@ else
 
 			while (rs.next()) {
 				User c = new User(rs.getString(1), rs.getString(2), rs.getString(3), (rs.getString(4)).charAt(0),
-						DateConversionUtil.dateToLong("rs.getLong(5)"), rs.getInt(6));
+						DateConversionUtil.dateToLong("rs.getLong(5)"), rs.getInt(6),rs.getString(7).charAt(0));
 				System.out.println(c);
 				listUser.add(c);
 
@@ -110,7 +110,7 @@ else
 
 			if (rs.next()) {
 				c = new User(rs.getString(1), rs.getString(2), rs.getString(3), (rs.getString(4)).charAt(0),
-						rs.getLong(5), rs.getInt(6));
+						rs.getLong(5), rs.getInt(6),rs.getString(7).charAt(0));
 				System.out.println(c);
 
 			}

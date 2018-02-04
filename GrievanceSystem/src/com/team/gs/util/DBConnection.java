@@ -7,13 +7,13 @@ public static Connection getConnection() throws Exception{
 	Connection c=DriverManager.getConnection("jdbc:mysql://localhost:3306/grievances","root","root");
 	return c;
 }
-/*public static void main(String a[])
+public static void main(String a[])
 {
 	try{
 System.out.println(getConnection());
 	}
 	catch(Exception e)
 	{e.printStackTrace();}
-}*/
+}
 }
 

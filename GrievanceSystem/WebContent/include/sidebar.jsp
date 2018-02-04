@@ -36,6 +36,8 @@
                             <span>Dashboard</span>
                         </a>
                     </li>
+                    
+                    
                     <li >
                         <a href="post_grievance.jsp">
                             <i class="material-icons">publish</i>
@@ -46,6 +48,13 @@
                         <a href="view_grievance.jsp">
                             <i class="material-icons">chat</i>
                             <span>View Grievance</span>
+                        </a>
+                    </li>
+                    
+                     <li >
+                        <a href="VerifyStudentServlet">
+                            <i class="material-icons">layers</i>
+                            <span>New Student Request</span>
                         </a>
                     </li>
                     <!-- <li>

@@ -1,3 +1,13 @@
+<%@page import="com.team.gs.beans.Branch"%>
+<%@page import="com.team.gs.beans.College"%>
+<%@page import="java.util.List"%>
+<%
+List<College> collegeList =(List<College>)request.getAttribute("collegeList"); 
+List<Branch> branchList =(List<Branch>)request.getAttribute("branchList"); 
+if(collegeList.size()!=0||branchList.size()!=0)
+{
+%>
+
 <!DOCTYPE html>
 <html>
 
@@ -33,7 +43,7 @@
         </div>
         <div class="card">
             <div class="body">
-                <form id="sign_up" action="RegisterStudent" method="POST">
+                <form id="sign_up" action="RegisterStudentServlet" method="POST">
                     <div class="msg">Register a new membership</div>
                     
                      <div class="input-group">
@@ -84,23 +94,47 @@
                             <input type="text" class="form-control" name="address"  placeholder="Enter Address" required>
                         </div>
                     </div>
-                    <div class="input-group">
+             <!--        <div class="input-group">
                         <span class="input-group-addon">
                             <i class="material-icons">CollegeId</i>
                         </span>
                         <div class="form-line">
                             <input type="number" class="form-control" name="collegeId"  placeholder="CollegeId" required>
-                        </div>
-                    </div>
-                       </div>
+                       
+ 
+  </div>
+                    </div> -->
+                    
                     <div class="input-group">
                         <span class="input-group-addon">
-                            <i class="material-icons">BranchId</i>
+                            <i class="material-icons">College</i>
                         </span>
-                        <div class="form-line">
-                            <input type="s" class="form-control" name="branchId"  placeholder="BranchId" required>
-                        </div>
-                    </div>
+                   <div class="row clearfix">
+                                <div class="col-sm-12">
+                                    <select name="college" class="form-control show-tick">
+                                        <option value="">-- Please selectcollege --</option>
+                                        <%for(College c:collegeList){%>
+                                        <option value="<%=c.getId()%>"><%=c.getName()%></option>
+                                       <%} %>
+                                    </select>
+                                </div>
+                       </div>
+                       </div>
+               <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">Branch</i>
+                        </span>
+                   <div class="row clearfix">
+                                <div class="col-sm-12">
+                                    <select name="branch" class="form-control show-tick">
+                                        <option value="">-- Please select Branch --</option>
+                                        <%for(Branch c:branchList){%>
+                                        <option value="<%=c.getId()%>"><%=c.getName()%></option>
+                                       <%} %>
+                                    </select>
+                                </div>
+                       </div>
+                       </div>
                     <div class="form-group">
                         <input type="checkbox" name="terms" id="terms" class="filled-in chk-col-pink">
                         <label for="terms">I read and agree to the <a href="javascript:void(0);">terms of usage</a>.</label>
@@ -134,3 +168,11 @@
 </body>
 
 </html>
+<% }
+else
+{
+	%>
+	no data found
+	<%
+	}
+%>

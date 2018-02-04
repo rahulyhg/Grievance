@@ -29,14 +29,16 @@ public class ValidationServlet extends HttpServlet {
 		System.out.println(username);
 		System.out.println(password);
 		UserDao ud = new UserDao();
+		
 	User loginUser=ud.validateUser(username, password);
 	if(loginUser!=null)
 	{
+		HttpSession session=request.getSession();
+		session.setAttribute("email", loginUser.getEmail());
 		RequestDispatcher rd = request.getRequestDispatcher("dashboard.jsp");
 		rd.forward(request, response);
 		//session
-		HttpSession session=request.getSession();
-		session.setAttribute("email", loginUser.getEmail());
+	
 	}
 	else
 	{

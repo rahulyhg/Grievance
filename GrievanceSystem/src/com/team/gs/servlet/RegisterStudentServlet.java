@@ -14,9 +14,9 @@ import com.team.gs.dao.StudentDao;
 /**
  * Servlet implementation class RegisterStudent
  */
-@WebServlet("/RegisterStudent")
+@WebServlet("/RegisterStudentServlet")
 
-public class RegisterStudent extends HttpServlet {
+public class RegisterStudentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     
@@ -27,22 +27,27 @@ public class RegisterStudent extends HttpServlet {
 		String contactNo = request.getParameter("contactNo");
 		String parentContactNo = request.getParameter("parentcontactNO");
 		String address = request.getParameter("address");
-		String collegeID = request.getParameter("collegeId");
-		String branchID = request.getParameter("branchId");
+		String collegeID = request.getParameter("college");
+		String branchID = request.getParameter("branch");
 		
-		/*System.out.println(enrollmentID);
+		System.out.println(enrollmentID);
 		System.out.println(name);
 		System.out.println(email);
 		System.out.println(contactNo);
 		System.out.println(parentContactNo);
 		System.out.println(address);
 		System.out.println(collegeID);
-		System.out.println(branchID);*/
+		System.out.println(branchID);
 		Student s=new Student(Integer.parseInt(enrollmentID), name, email,Long.parseLong(contactNo) , Long.parseLong(parentContactNo), address, "aman.jpj", Integer.parseInt(collegeID),Integer.parseInt(branchID) );
-		//System.out.println(s);
+		s.setStatus('u');
+		System.out.println(s);
+
 		StudentDao sd=new StudentDao();
 		sd.insertStudent(s);
-		
+		// user bean me status getter settr
+		//user me same data insert id pass + status u
+		//redir=ect tosignin .jsp sucess+veriy by admin
+		//
 	}
 
 	/**

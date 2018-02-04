@@ -10,6 +10,8 @@ public class Student {
 	String profilePic;
 	Integer collegeId;
 	Integer branchId;
+	char status;
+	
 	public Student(Integer enrollmentId, String name, String email, Long contactNo, Long parentContact,
 			String address, String profilePic, Integer collegeId, Integer branchId) {
 		super();
@@ -77,12 +79,21 @@ public class Student {
 	public void setBranchId(Integer branchId) {
 		this.branchId = branchId;
 	}
+	
+	
+	public char getStatus() {
+		return status;
+	}
+	public void setStatus(char status) {
+		this.status = status;
+	}
 	@Override
 	public String toString() {
 		return "Student [enrollmentId=" + enrollmentId + ", name=" + name + ", email=" + email + ", contactNo="
 				+ contactNo + ", parentContact=" + parentContact + ", address=" + address + ", profilePic=" + profilePic
-				+ ", collegeId=" + collegeId + ", branchId=" + branchId + "]";
+				+ ", collegeId=" + collegeId + ", branchId=" + branchId + ", status=" + status + "]";
 	}
+	
 	
 
 }
