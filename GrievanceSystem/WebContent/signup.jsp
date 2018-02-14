@@ -135,6 +135,15 @@ if(collegeList.size()!=0||branchList.size()!=0)
                                 </div>
                        </div>
                        </div>
+                           <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">Password</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="password" class="form-control" name="Password"  placeholder="Enter Password" required>
+                        </div>
+                    </div>
+            
                     <div class="form-group">
                         <input type="checkbox" name="terms" id="terms" class="filled-in chk-col-pink">
                         <label for="terms">I read and agree to the <a href="javascript:void(0);">terms of usage</a>.</label>

@@ -24,13 +24,14 @@ public class UserDao {
 
 		try {
 			conn = DBConnection.getConnection();
-			PreparedStatement ps = conn.prepareStatement("insert into user  values(?,?,?,?,?,?)");
+			PreparedStatement ps = conn.prepareStatement("insert into user (email,user_name,password,role,last_seen,college_id,status) values(?,?,?,?,?,?,?)");
 			ps.setString(1, u.getEmail());
 			ps.setString(2, u.getUserName());
 			ps.setString(3, u.getPassword());
 			ps.setString(4, "" + u.getRole());
 			ps.setString(5, "" + u.getLastScreen());
 			ps.setInt(6, u.getCollegeId());
+			ps.setString(7, "u");
 			ps.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -114,6 +115,26 @@ else
 				System.out.println(c);
 
 			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+
+		return c;
+
+	}
+
+	public User deleteByEmail(String mail) {
+		Connection conn;
+		
+		User c = null;
+		try {
+			conn = DBConnection.getConnection();
+			PreparedStatement ps = conn.prepareStatement("delete from user where email=?");
+			ps.setString(1, mail);
+			 ps.executeUpdate();
+
+	
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;

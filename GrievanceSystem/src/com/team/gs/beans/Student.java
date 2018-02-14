@@ -12,8 +12,8 @@ public class Student {
 	Integer branchId;
 	char status;
 	
-	public Student(Integer enrollmentId, String name, String email, Long contactNo, Long parentContact,
-			String address, String profilePic, Integer collegeId, Integer branchId) {
+	public Student(Integer enrollmentId, String name, String email, Long contactNo, Long parentContact, String address,
+			String profilePic, Integer collegeId, Integer branchId, char status) {
 		super();
 		this.enrollmentId = enrollmentId;
 		this.name = name;
@@ -24,6 +24,8 @@ public class Student {
 		this.profilePic = profilePic;
 		this.collegeId = collegeId;
 		this.branchId = branchId;
+		this.status = status;
+		
 	}
 	public Integer getEnrollmentId() {
 		return enrollmentId;
@@ -79,21 +81,19 @@ public class Student {
 	public void setBranchId(Integer branchId) {
 		this.branchId = branchId;
 	}
-	
-	
 	public char getStatus() {
 		return status;
 	}
 	public void setStatus(char status) {
 		this.status = status;
 	}
+	
 	@Override
 	public String toString() {
 		return "Student [enrollmentId=" + enrollmentId + ", name=" + name + ", email=" + email + ", contactNo="
 				+ contactNo + ", parentContact=" + parentContact + ", address=" + address + ", profilePic=" + profilePic
-				+ ", collegeId=" + collegeId + ", branchId=" + branchId + ", status=" + status + "]";
+				+ ", collegeId=" + collegeId + ", branchId=" + branchId + ", status=" + status+"]";
 	}
 	
 	
-
 }

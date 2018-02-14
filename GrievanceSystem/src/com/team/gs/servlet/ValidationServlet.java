@@ -35,8 +35,24 @@ public class ValidationServlet extends HttpServlet {
 	{
 		HttpSession session=request.getSession();
 		session.setAttribute("email", loginUser.getEmail());
-		RequestDispatcher rd = request.getRequestDispatcher("dashboard.jsp");
-		rd.forward(request, response);
+		session.setAttribute("loginUser", loginUser);
+		
+		if(loginUser.getRole()=='a'){
+		  RequestDispatcher rd = request.getRequestDispatcher("dashboard.jsp");
+		  rd.forward(request, response);
+		}else if(loginUser.getRole()=='s')
+		{	
+			if(loginUser.getStatus()=='v')
+			{
+			RequestDispatcher rd = request.getRequestDispatcher("StudentDashboard.jsp");
+			rd.forward(request, response);
+			}else
+			{
+				request.setAttribute("message", "You Are Not Verified BY Admin");
+				RequestDispatcher rd = request.getRequestDispatcher("signin.jsp");
+				rd.forward(request, response);
+			}
+		}
 		//session
 	
 	}
