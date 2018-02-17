@@ -28,7 +28,7 @@ public class GrievanceDao {
 			ps.setString(4, ""+g.getDate());
 			ps.setString(5, ""+g.getStatus());
 			ps.setInt(6, g.getCollegeId());
-			ps.setInt(7, g.getStudentId());//student id aayega ki subject idye batao
+			ps.setInt(7, g.getStudentId());
 			ps.executeUpdate();
 			
 		} catch (Exception e) {

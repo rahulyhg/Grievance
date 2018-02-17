@@ -100,7 +100,7 @@ CREATE TABLE `grievance` (
   CONSTRAINT `FK_grevance_1` FOREIGN KEY (`college_id`) REFERENCES `m_college` (`id`),
   CONSTRAINT `FK_grievance_2` FOREIGN KEY (`student_id`) REFERENCES `student` (`enroll_id`),
   CONSTRAINT `FK_grievance_3` FOREIGN KEY (`subject_id`) REFERENCES `m_grievances_subject` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -109,6 +109,7 @@ CREATE TABLE `grievance` (
 
 LOCK TABLES `grievance` WRITE;
 /*!40000 ALTER TABLE `grievance` DISABLE KEYS */;
+INSERT INTO `grievance` VALUES (1,1,'hjjkjjkjlkj','f:\\aman\\Pic_6.jpeg','1518895007902','p',1,1234),(102,1,'dfeqqr','f:\\aman\\Pic_6.jpeg','1518897809964','p',1,1234);
 /*!40000 ALTER TABLE `grievance` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -224,7 +225,7 @@ CREATE TABLE `student` (
 
 LOCK TABLES `student` WRITE;
 /*!40000 ALTER TABLE `student` DISABLE KEYS */;
-INSERT INTO `student` VALUES (101,'aman','aman.khullar297@gmail.com',8989468996,8989468996,'C-41','aman.jpj',1,1,'v'),(121,'aman kumar','aman.khullar5@gmail.com',6565,2222,'rjlrjila','aman.jpj',3,1,'u'),(1234,'qawsed','qaqa@qaqa.com',789456,789456,'dssvds','aman.jpj',3,1,'u'),(1234,'hello','qqe@hjhj.com',123456,123456,'4141','aman.jpj',3,1,'u'),(23456,'gh','ghku@mjj.com',222,555,'vhj','aman.jpj',1,1,'u');
+INSERT INTO `student` VALUES (101,'aman','aman.khullar297@gmail.com',8989468996,8989468996,'C-41','aman.jpj',1,1,'v'),(1234,'qawsed','qaqa@qaqa.com',789456,789456,'dssvds','aman.jpj',3,1,'v'),(1234,'hello','qqe@hjhj.com',123456,123456,'4141','aman.jpj',3,1,'u'),(23456,'gh','ghku@mjj.com',222,555,'vhj','aman.jpj',1,1,'u');
 /*!40000 ALTER TABLE `student` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -255,7 +256,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('aman.khullar297@gmail.com','aman','aman','a','836591400000',3,'u'),('aman.khullar5@gmail.com','aman','aman','a','836591400000',3,'u'),('qaqa@qaqa.com','qaqa@qaqa.com','1234','s','1518589344950',1,'u'),('qqe@hjhj.com','qqe@hjhj.com','1234','s','1518591360671',1,'u'),('r@rr.com','1','1','a','1516374707306',1,'u');
+INSERT INTO `user` VALUES ('aman.khullar297@gmail.com','aman','aman','a','836591400000',3,'u'),('aman.khullar5@gmail.com','aman','aman','a','836591400000',3,'u'),('qaqa@qaqa.com','qaqa@qaqa.com','1234','s','1518589344950',1,'v'),('qqe@hjhj.com','qqe@hjhj.com','1234','s','1518591360671',1,'u'),('r@rr.com','1','1','a','1516374707306',1,'u');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -268,4 +269,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-15  0:56:19
+-- Dump completed on 2018-02-18  1:39:50
