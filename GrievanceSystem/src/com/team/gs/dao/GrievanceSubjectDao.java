@@ -58,6 +58,33 @@ while(rs.next())
 		return listGrievSub;
 
 	}
+	public List<GrievanceSubject>  findAllByCollegeId(int collegeId) {
+		Connection conn;
+		ResultSet rs= null;
+		List<GrievanceSubject> listGrievSub=new ArrayList<GrievanceSubject>();
+
+		try {
+			conn = DBConnection.getConnection();
+			PreparedStatement ps = conn.prepareStatement("select * from m_grievances_subject where college_id="+collegeId);
+			rs= ps.executeQuery();
+			
+while(rs.next())	
+{
+	GrievanceSubject c = new GrievanceSubject(rs.getInt(1),rs.getString(2),rs.getInt(3));
+	System.out.println(c);
+	listGrievSub.add(c);
+     
+}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+
+		return listGrievSub;
+
+	}
+	
+	
 	public List<GrievanceSubject>  findById(Integer id) {
 		Connection conn;
 		ResultSet rs= null;

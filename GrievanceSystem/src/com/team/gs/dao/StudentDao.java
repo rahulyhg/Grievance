@@ -171,6 +171,29 @@ public class StudentDao {
 
 	}
 
+	public Student alterStatus(Student student) {
+		Connection conn;
+		
+		//User c = null;
+		try {
+			conn = DBConnection.getConnection();
+			student.setStatus('v');
+			PreparedStatement ps = conn.prepareStatement("update student set status=? where email=?");
+			ps.setString(1,""+ student.getStatus());
+			ps.setString(2, student.getEmail());
+			 ps.executeUpdate();
+
+	
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+
+		return student;
+
+	}
+
+
 	
 /*	public boolean insertStudentUser(Student s,User user) {
 		Connection conn;

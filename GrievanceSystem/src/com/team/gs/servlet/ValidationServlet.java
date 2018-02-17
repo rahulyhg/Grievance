@@ -12,7 +12,9 @@ import javax.servlet.http.HttpSession;
 
 import org.omg.CORBA.Request;
 
+import com.team.gs.beans.SessionBean;
 import com.team.gs.beans.User;
+import com.team.gs.dao.StudentDao;
 import com.team.gs.dao.UserDao;
 
 /**
@@ -33,17 +35,23 @@ public class ValidationServlet extends HttpServlet {
 	User loginUser=ud.validateUser(username, password);
 	if(loginUser!=null)
 	{
-		HttpSession session=request.getSession();
-		session.setAttribute("email", loginUser.getEmail());
-		session.setAttribute("loginUser", loginUser);
+
 		
 		if(loginUser.getRole()=='a'){
+			HttpSession session=request.getSession();
+			session.setAttribute("email", loginUser.getEmail());
+			session.setAttribute("loginUser", loginUser);
 		  RequestDispatcher rd = request.getRequestDispatcher("dashboard.jsp");
 		  rd.forward(request, response);
 		}else if(loginUser.getRole()=='s')
 		{	
 			if(loginUser.getStatus()=='v')
 			{
+				HttpSession session=request.getSession();
+				SessionBean sessionBean = new SessionBean();
+				sessionBean.setUser(loginUser);
+				sessionBean.setStudent(new StudentDao().findByEmail(loginUser.getEmail()));
+				session.setAttribute("sessionBean",sessionBean);
 			RequestDispatcher rd = request.getRequestDispatcher("StudentDashboard.jsp");
 			rd.forward(request, response);
 			}else

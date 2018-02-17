@@ -1,3 +1,15 @@
+<%@page import="com.team.gs.beans.GrievanceSubject"%>
+<%@page import="java.util.List"%>
+<%
+List<GrievanceSubject> subjectList= (List<GrievanceSubject>)request.getAttribute("subjectList"); 
+System.out.println("list of sub ----->>"+subjectList);
+if(subjectList == null)
+{
+	RequestDispatcher rd = request.getRequestDispatcher("LoadPostGrievance");
+	rd.forward(request, response);
+	}
+%>
+
 <%@include file="include/header.jsp"%>
 <%@include file="include/sidebar.jsp"%>
 
@@ -11,18 +23,18 @@
 		<div class="row clearfix">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<div class="card">
-					<form action="/" method="post">
+					<form action="PostGrievanceServlet" method="post"  enctype="multipart/form-data">
 						<div class="body">
 							<h2 class="card-inside-title">Select Your Grievance Category</h2>
 							<div class="row clearfix">
 								<div class="col-sm-12">
-									<select class="form-control show-tick" required>
-										<option value="">-- Please select --</option>
-										<option value="10">10</option>
-										<option value="20">20</option>
-										<option value="30">30</option>
-										<option value="40">40</option>
-										<option value="50">50</option>
+									<select name="subject" class="form-control show-tick" required>
+										<option value="" >-- Please select --</option>
+										<%for(GrievanceSubject gs : subjectList){ %>
+										<option value="<%=gs.getId()%>"><%=gs.getName()%></option>
+										
+										<%} %>
+										
 									</select>
 								</div>
 							</div>
@@ -30,7 +42,7 @@
 							<div class="form-group">
 								<div class="form-line">
 									<textarea required rows="1"
-										class="form-control no-resize auto-growth"
+										class="form-control no-resize auto-growth"  name="description"
 										placeholder="Please type what you want... And please don't forget the ENTER key press multiple times :)"></textarea>
 								</div>
 							</div>
@@ -42,7 +54,7 @@
                                     <span>ATTACH FILES</span>
                                 </button> -->
 								
-									<input type="file" class="btn btn-primary" value="Attach File">
+									<input type="file" class="btn btn-primary" name="file">
 								
 
 							</div>

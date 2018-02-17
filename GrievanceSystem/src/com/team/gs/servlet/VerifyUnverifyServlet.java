@@ -37,11 +37,11 @@ public class VerifyUnverifyServlet extends HttpServlet {
 	
 	if(status.equals("u")){
 		UserDao userDao=new UserDao();
-		User user=userDao.findByEmail("email");
-		user.setStatus('v');
+		User user=userDao.findByEmail(email);
+		user=userDao.alterStatus(user);
 		StudentDao studentDao=new StudentDao();
 		Student student=studentDao.findByEmail(email);
-		student.setStatus('v');
+		student=studentDao.alterStatus(student);
 		System.out.println("Updated");
 	}else if(status.equals("d")){
 		UserDao userDao=new UserDao();
@@ -50,7 +50,7 @@ public class VerifyUnverifyServlet extends HttpServlet {
 		studentDao.deleteByEmail(email);
 	System.out.println("Deleted");
 	}}
-	RequestDispatcher rd = request.getRequestDispatcher("verifyStudent.jsp");
+	RequestDispatcher rd = request.getRequestDispatcher("VerifyStudentServlet");
 	rd.forward(request, response);
 	
 	}

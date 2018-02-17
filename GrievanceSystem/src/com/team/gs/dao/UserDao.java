@@ -144,4 +144,26 @@ else
 
 	}
 
+	public User alterStatus(User user) {
+		Connection conn;
+		
+		//User c = null;
+		try {
+			conn = DBConnection.getConnection();
+			user.setStatus('v');
+			PreparedStatement ps = conn.prepareStatement("update user set status=? where email=?");
+			ps.setString(1,""+ user.getStatus());
+			ps.setString(2, user.getEmail());
+			 ps.executeUpdate();
+
+	
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+
+		return user;
+
+	}
+
 }

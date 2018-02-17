@@ -21,15 +21,14 @@ public class GrievanceDao {
 
 		try {
 			conn = DBConnection.getConnection();
-			PreparedStatement ps = conn.prepareStatement("insert into grievance values(?,?,?,?,?,?,?,?)");
-			ps.setInt(1, g.getId());
-			ps.setInt(2, g.getSubjectId());
-			ps.setString(3, g.getDescription());
-			ps.setString(4, g.getFile());
-			ps.setString(5, ""+g.getDate());
-			ps.setString(6, ""+g.getStatus());
-			ps.setInt(7, g.getCollegeId());
-			ps.setInt(8, g.getSubjectId());
+			PreparedStatement ps = conn.prepareStatement("insert into grievance(subject_id,description,file,date,status,college_id,student_id) values(?,?,?,?,?,?,?)");
+			ps.setInt(1, g.getSubjectId());
+			ps.setString(2, g.getDescription());
+			ps.setString(3, g.getFile());
+			ps.setString(4, ""+g.getDate());
+			ps.setString(5, ""+g.getStatus());
+			ps.setInt(6, g.getCollegeId());
+			ps.setInt(7, g.getStudentId());//student id aayega ki subject idye batao
 			ps.executeUpdate();
 			
 		} catch (Exception e) {
